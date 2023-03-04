@@ -28,6 +28,7 @@
                 </x-card.default>
             </div>
 
+            @if (auth()->user()->isRouteAllowed('{{ route_path }}.import'))
             <div class="py-4">
                 <x-card.default>
                     <form action="{{ route('{{ route_path }}.import') }}" method="POST" enctype="multipart/form-data">
@@ -45,26 +46,33 @@
                     </form>
                 </x-card.default>
             </div>
+            @endif
 
             <x-card.default>
                 <table class="table-auto w-full">
                     <thead>
+                        @if (auth()->user()->isRouteAllowed('{{ route_path }}.export'))
                         <tr>
                             <x-tables.th class="text-right" colspan="{{ colspan }}">
                                 <x-links.button-info href="{{ route('{{ route_path }}.export', array_merge($criteria, ['encoding' => 'sjis'])) }}">{{ __('actions.export') }}(win)</x-links.button-info>
                             </x-tables.th>
                         </tr>
+
                         <tr>
                             <x-tables.th class="text-right" colspan="{{ colspan }}">
                                 <x-links.button-info href="{{ route('{{ route_path }}.export', $criteria) }}">{{ __('actions.export') }}(mac)</x-links.button-info>
                             </x-tables.th>
                         </tr>
+                        @endif
+
+                        @if (auth()->user()->isRouteAllowed('{{ route_path }}.create'))
                         <tr>
                             {{ header }}
                             <x-tables.th class="text-right">
                                 <x-links.button-info href="{{ route('{{ route_path }}.create') }}">{{ __('actions.create') }}</x-links.button-info>
                             </x-tables.th>
                         </tr>
+                        @endif
                     </thead>
 
                     <tbody>
@@ -72,7 +80,9 @@
                         <tr>
                             {{ body }}
                             <x-tables.td class="text-right">
+                                @if (auth()->user()->isRouteAllowed('{{ route_path }}.show'))
                                 <x-links.button-default href="{{ route('{{ route_path }}.show', ${{ model }}) }}">{{ __('actions.show') }}</x-links.button-default>
+                                @endif
                             </x-tables.td>
                         </tr>
                     @endforeach

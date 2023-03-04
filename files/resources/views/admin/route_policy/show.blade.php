@@ -23,10 +23,13 @@
                     </ul>
                 </div>
 
+                @if (auth()->user()->isRouteAllowed('admin.route_policy.edit'))
                 <div class="flex justify-end mt-4">
                     <x-links.button-info href="{{ route('admin.route_policy.edit', $route_policy) }}">{{ __('actions.edit') }}</x-links.button-info>
                 </div>
+                @endif
 
+                @if (auth()->user()->isRouteAllowed('admin.route_policy.destroy'))
                 <div class="flex justify-end mt-4">
                     <form actions="{{ route('admin.route_policy.destroy', $route_policy) }}" method="POST" onsubmit="return confirm('{{ __('actions.confirm-destroy') }}')">
                         @csrf
@@ -35,6 +38,7 @@
                         <x-forms.submit-danger>{{ __('actions.destroy') }}</x-forms.submit-danger>
                     </form>
                 </div>
+                @endif
             </x-card.default>
 
         </div>

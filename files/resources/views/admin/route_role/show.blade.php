@@ -14,10 +14,13 @@
                     <p>{{ $route_role->name }}</p>
                 </div>
 
+                @if (auth()->user()->isRouteAllowed('admin.route_role.edit'))
                 <div class="flex justify-end mt-4">
                     <x-links.button-info href="{{ route('admin.route_role.edit', $route_role) }}">{{ __('actions.edit') }}</x-links.button-info>
                 </div>
+                @endif
 
+                @if (auth()->user()->isRouteAllowed('admin.route_role.destroy'))
                 <div class="flex justify-end mt-4">
                     <form actions="{{ route('admin.route_role.destroy', $route_role) }}" method="POST" onsubmit="return confirm('{{ __('actions.confirm-destroy') }}')">
                         @csrf
@@ -26,6 +29,7 @@
                         <x-forms.submit-danger>{{ __('actions.destroy') }}</x-forms.submit-danger>
                     </form>
                 </div>
+                @endif
             </x-card.default>
 
         </div>
