@@ -1,0 +1,20 @@
+<x-app-layout>
+    <div class="mt-8 mb-4 sm:px-6 lg:px-8">
+        <x-breadcrumb.default :items="[
+            __('models.route_role.table_name') => route('admin.route_role.index'),
+            __('actions.create') => null,
+        ]" />
+    </div>
+
+    <div class="py-4">
+        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+            <x-card.default>
+                <form action="{{ route('admin.route_role.store') }}" method="POST">
+                    @csrf
+
+                    @include('admin.route_role.form')
+                </form>
+            </x-card.default>
+        </div>
+    </div>
+</x-app-layout>
