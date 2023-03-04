@@ -6,5 +6,7 @@
             "email": "haruya.nishikubo@gmail.com"
         }
     ],
-    "require": {}
+    "require": {
+        "laravel/laravel": "^9"
+    }
 }
