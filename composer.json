@@ -1,0 +1,10 @@
+{
+    "name": "haruyanishikubo/laravel-dx",
+    "authors": [
+        {
+            "name": "Haruya Nishikubo",
+            "email": "haruya.nishikubo@gmail.com"
+        }
+    ],
+    "require": {}
+}
