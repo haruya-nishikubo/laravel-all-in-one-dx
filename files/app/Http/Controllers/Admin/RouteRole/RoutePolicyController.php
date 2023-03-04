@@ -38,6 +38,7 @@ class RoutePolicyController extends Controller
         $route_role->routePolicies()
             ->sync($validated['route_role']['route_policies'] ?? []);
 
-        return redirect()->route('admin.route_role.show', $route_role);
+        return redirect()->route('admin.route_role.show', $route_role)
+            ->with('success', 'Success.');
     }
 }

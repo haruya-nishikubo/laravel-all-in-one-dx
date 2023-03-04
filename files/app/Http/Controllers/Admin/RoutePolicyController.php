@@ -56,10 +56,12 @@ class RoutePolicyController extends Controller
         $route_policy = new RoutePolicy($validated['route_policy']);
 
         if (! $route_policy->save()) {
-            return back()->withInput();
+            return back()->withInput()
+                ->with('failure', 'Failure.');
         }
 
-        return redirect()->route('admin.route_policy.show', $route_policy);
+        return redirect()->route('admin.route_policy.show', $route_policy)
+            ->with('success', 'Success.');
     }
 
     /**
@@ -103,10 +105,12 @@ class RoutePolicyController extends Controller
         $route_policy->fill($validated['route_policy']);
 
         if (! $route_policy->save()) {
-            return back()->withInput();
+            return back()->withInput()
+                ->with('failure', 'Failure.');
         }
 
-        return redirect()->route('admin.route_policy.show', $route_policy);
+        return redirect()->route('admin.route_policy.show', $route_policy)
+            ->with('success', 'Success.');
     }
 
     /**
@@ -118,9 +122,10 @@ class RoutePolicyController extends Controller
     public function destroy(RoutePolicy $route_policy)
     {
         if (! $route_policy->delete()) {
-            return back();
+            return back()->with('failure', 'Failure.');
         }
 
-        return redirect()->route('admin.route_policy.index');
+        return redirect()->route('admin.route_policy.index')
+            ->with('success', 'Success.');
     }
 }

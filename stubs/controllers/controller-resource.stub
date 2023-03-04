@@ -55,10 +55,12 @@ class {{ Controller }} extends Controller
         ${{ model }} = new {{ Model }}($validated['{{ model }}']);
 
         if (! ${{ model }}->save()) {
-            return back()->withInput();
+            return back()->withInput()
+                ->with('failure', 'Failure.');
         }
 
-        return redirect()->route('{{ view_path }}.show', ${{ model }});
+        return redirect()->route('{{ view_path }}.show', ${{ model }})
+            ->with('success', 'Success.');
     }
 
     /**
@@ -101,10 +103,12 @@ class {{ Controller }} extends Controller
         ${{ model }}->fill($validated['{{ model }}']);
 
         if (! ${{ model }}->save()) {
-            return back()->withInput();
+            return back()->withInput()
+                ->with('failure', 'Failure.');
         }
 
-        return redirect()->route('{{ view_path }}.show', ${{ model }});
+        return redirect()->route('{{ view_path }}.show', ${{ model }})
+            ->with('success', 'Success.');
     }
 
     /**
@@ -116,9 +120,10 @@ class {{ Controller }} extends Controller
     public function destroy({{ Model }} ${{ model }})
     {
         if (! ${{ model }}->delete()) {
-            return back();
+            return back()->with('failure', 'Failure.');
         }
 
-        return redirect()->route('{{ view_path }}.index');
+        return redirect()->route('{{ view_path }}.index')
+            ->with('success', 'Success.');
     }
 }

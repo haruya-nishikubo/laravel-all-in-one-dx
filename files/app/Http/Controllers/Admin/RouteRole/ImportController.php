@@ -35,7 +35,8 @@ class ImportController extends Controller
             ->transform();
 
         if ($this->validator->fails()) {
-            return back()->withErrors($this->validator);
+            return back()->withErrors($this->validator)
+                ->with('failure', 'Failure.');
         }
 
         DB::beginTransaction();
@@ -57,10 +58,11 @@ class ImportController extends Controller
 
             DB::rollBack();
 
-            return back();
+            return back()->with('failure', $e->getMessage());
         }
 
-        return redirect()->route('admin.route_role.index');
+        return redirect()->route('admin.route_role.index')
+            ->with('success', 'Success.');
     }
 
     protected function extract(string $path): self
