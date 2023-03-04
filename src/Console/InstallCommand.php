@@ -12,7 +12,7 @@ class InstallCommand extends Command
      *
      * @var string
      */
-    protected $signature = 'dx:install';
+    protected $signature = 'all-in-one-dx:install';
 
     /**
      * The console command description.
