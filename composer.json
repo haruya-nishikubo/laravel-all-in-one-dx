@@ -8,5 +8,8 @@
     ],
     "require": {
         "laravel/laravel": "^9"
+    },
+    "require-dev": {
+        "barryvdh/laravel-ide-helper": "^2.13"
     }
 }
