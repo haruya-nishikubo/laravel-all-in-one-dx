@@ -1,0 +1,1 @@
+<x-tables.th>{{ __('models.{{ model }}.field.{{ field }}') }}</x-tables.th>

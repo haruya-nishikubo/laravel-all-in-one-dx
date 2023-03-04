@@ -1,0 +1,7 @@
+{{ body }}
+
+<div>
+    <div class="flex justify-end mt-4">
+        <x-forms.submit-success>{{ __('actions.save') }}</x-forms.submit-success>
+    </div>
+</div>
