@@ -10,10 +10,13 @@
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <x-card.default>
 {{ body }}
+                @if (auth()->user()->isRouteAllowed('{{ route_path }}.edit'))
                 <div class="flex justify-end mt-4">
                     <x-links.button-info href="{{ route('{{ route_path }}.edit', ${{ model }}) }}">{{ __('actions.edit') }}</x-links.button-info>
                 </div>
+                @endif
 
+                @if (auth()->user()->isRouteAllowed('{{ route_path }}.destroy'))
                 <div class="flex justify-end mt-4">
                     <form actions="{{ route('{{ route_path }}.destroy', ${{ model }}) }}" method="POST" onsubmit="return confirm('{{ __('actions.confirm-destroy') }}')">
                         @csrf
@@ -22,6 +25,7 @@
                         <x-forms.submit-danger>{{ __('actions.destroy') }}</x-forms.submit-danger>
                     </form>
                 </div>
+                @endif
             </x-card.default>
 
         </div>

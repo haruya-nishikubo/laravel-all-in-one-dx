@@ -35,6 +35,7 @@
                 </x-card.default>
             </div>
 
+            @if (auth()->user()->isRouteAllowed('admin.route_role.import'))
             <div class="py-4">
                 <x-card.default>
                     <form action="{{ route('admin.route_role.import') }}" method="POST" enctype="multipart/form-data">
@@ -52,26 +53,33 @@
                     </form>
                 </x-card.default>
             </div>
+            @endif
 
             <x-card.default>
                 <table class="table-auto w-full">
                     <thead>
+                        @if (auth()->user()->isRouteAllowed('admin.route_role.export'))
                         <tr>
                             <x-tables.th class="text-right" colspan="2">
                                 <x-links.button-info href="{{ route('admin.route_role.export', array_merge($criteria, ['encoding' => 'sjis'])) }}">{{ __('actions.export') }}(win)</x-links.button-info>
                             </x-tables.th>
                         </tr>
+
                         <tr>
                             <x-tables.th class="text-right" colspan="2">
                                 <x-links.button-info href="{{ route('admin.route_role.export', $criteria) }}">{{ __('actions.export') }}(mac)</x-links.button-info>
                             </x-tables.th>
                         </tr>
+                        @endif
+
+                        @if (auth()->user()->isRouteAllowed('admin.route_role.create'))
                         <tr>
                             <x-tables.th>{{ __('models.route_role.field.name') }}</x-tables.th>
                             <x-tables.th class="text-right">
                                 <x-links.button-info href="{{ route('admin.route_role.create') }}">{{ __('actions.create') }}</x-links.button-info>
                             </x-tables.th>
                         </tr>
+                        @endif
                     </thead>
 
                     <tbody>
@@ -79,7 +87,9 @@
                         <tr>
                             <x-tables.td>{{ $route_role->name }}</x-tables.td>
                             <x-tables.td class="text-right">
+                                @if (auth()->user()->isRouteAllowed('admin.route_role.show'))
                                 <x-links.button-default href="{{ route('admin.route_role.show', $route_role) }}">{{ __('actions.show') }}</x-links.button-default>
+                                @endif
                             </x-tables.td>
                         </tr>
                     @endforeach
