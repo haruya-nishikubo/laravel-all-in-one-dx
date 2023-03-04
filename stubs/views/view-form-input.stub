@@ -1,0 +1,9 @@
+<div class="mt-4">
+    <x-forms.label {{ label_required }}
+                   :title="__('models.{{ lang_model }}.field.{{ field }}')">
+        <x-forms.input type="text"
+                       name="{{ model }}[{{ field }}]"
+                       value="{{ old('{{ model }}.{{ field }}', ${{ model }}->{{ field }}) }}"
+                       {{ input_required }} />
+    </x-forms.label>
+</div>

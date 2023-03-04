@@ -1,0 +1,4 @@
+                <div class="mt-4">
+                    <label class="block font-medium text-sm text-gray-700">{{ __('models.{{ model }}.field.{{ field }}') }}</label>
+                    <p>{{ ${{ model }}->{{ field }} }}</p>
+                </div>

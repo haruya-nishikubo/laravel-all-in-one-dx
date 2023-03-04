@@ -1,0 +1,16 @@
+<?php
+
+use {{ namespace_controller }}\{{ Controller }};
+use {{ namespace_controller }}\{{ Model }}\ImportController;
+use {{ namespace_controller }}\{{ Model }}\ExportController;
+use Illuminate\Support\Facades\Route;
+
+Route::middleware(['auth'])
+    ->prefix('{{ route_prefix }}')
+    ->name('{{ route_name }}.')
+    ->group(function () {
+        Route::post('{{ route_resource_name }}/import', ImportController::class)->name('{{ model }}.import');
+        Route::get('{{ route_resource_name }}/export', ExportController::class)->name('{{ model }}.export');
+
+        Route::resource('{{ route_resource_name }}', {{ Controller }}::class);
+    });

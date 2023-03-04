@@ -3,6 +3,7 @@
 namespace Hrynskb\AllInOneDx;
 
 use Hrynskb\AllInOneDx\Console\InstallCommand;
+use Hrynskb\AllInOneDx\Console\ScaffoldCommand;
 use Illuminate\Support\ServiceProvider;
 
 class AllInOneDxServiceProvider extends ServiceProvider
@@ -30,6 +31,7 @@ class AllInOneDxServiceProvider extends ServiceProvider
 
         $this->commands([
             InstallCommand::class,
+            ScaffoldCommand::class,
         ]);
     }
 }
