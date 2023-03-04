@@ -55,10 +55,12 @@ class RouteRoleController extends Controller
         $route_role = new RouteRole($validated['route_role']);
 
         if (! $route_role->save()) {
-            return back()->withInput();
+            return back()->withInput()
+                ->with('failure', 'Failure.');
         }
 
-        return redirect()->route('admin.route_role.show', $route_role);
+        return redirect()->route('admin.route_role.show', $route_role)
+            ->with('success', 'Success.');
     }
 
     /**
@@ -101,10 +103,12 @@ class RouteRoleController extends Controller
         $route_role->fill($validated['route_role']);
 
         if (! $route_role->save()) {
-            return back()->withInput();
+            return back()->withInput()
+                ->with('failure', 'Failure.');
         }
 
-        return redirect()->route('admin.route_role.show', $route_role);
+        return redirect()->route('admin.route_role.show', $route_role)
+            ->with('success', 'Success.');
     }
 
     /**
@@ -116,9 +120,10 @@ class RouteRoleController extends Controller
     public function destroy(RouteRole $route_role)
     {
         if (! $route_role->delete()) {
-            return back();
+            return back()->with('failure', 'Failure.');
         }
 
-        return redirect()->route('admin.route_role.index');
+        return redirect()->route('admin.route_role.index')
+            ->with('success', 'Success.');
     }
 }

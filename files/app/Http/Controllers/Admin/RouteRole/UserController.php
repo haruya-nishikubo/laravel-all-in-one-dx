@@ -38,6 +38,7 @@ class UserController extends Controller
         $route_role->users()
             ->sync($validated['route_role']['users'] ?? []);
 
-        return redirect()->route('admin.route_role.show', $route_role);
+        return redirect()->route('admin.route_role.show', $route_role)
+            ->with('success', 'Success.');
     }
 }
