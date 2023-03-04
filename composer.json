@@ -11,5 +11,17 @@
     },
     "require-dev": {
         "barryvdh/laravel-ide-helper": "^2.13"
+    },
+    "autoload": {
+      "psr-4": {
+        "Hrynskb\\AllInOneDx\\": "src/"
+      }
+    },
+    "extra": {
+      "laravel": {
+        "providers": [
+          "Hrynskb\\AllInOneDx\\AllInOneDxServiceProvider"
+        ]
+      }
     }
 }
