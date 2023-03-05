@@ -7,7 +7,8 @@
             @if(auth()->user()->isRouteAllowed('admin.route_role.index'))
             <li>
                 <x-sidebar.link :href="route('admin.route_role.index')" :active="request()->routeIs('admin.route_role.*')">
-                    {{ __('models.route_role.table_name') }}
+                    <span class="material-icons align-middle">manage_accounts</span>
+                    <span>{{ __('models.route_role.table_name') }}</span>
                 </x-sidebar.link>
             </li>
             @endif
@@ -15,7 +16,8 @@
             @if(auth()->user()->isRouteAllowed('admin.route_policy.index'))
             <li class="mt-2">
                 <x-sidebar.link :href="route('admin.route_policy.index')" :active="request()->routeIs('admin.route_policy.*')">
-                    {{ __('models.route_policy.table_name') }}
+                    <span class="material-icons align-middle">policy</span>
+                    <span>{{ __('models.route_policy.table_name') }}</span>
                 </x-sidebar.link>
             </li>
             @endif
