@@ -1,4 +1,4 @@
-<x-app-layout>
+<x-admin-layout>
     <div class="mt-8 mb-4 sm:px-6 lg:px-8">
         <x-breadcrumb.default :items="[
             __('models.route_policy.table_name') => route('admin.route_policy.index'),
@@ -6,7 +6,7 @@
         ]" />
     </div>
 
-    <div class="py-12">
+    <div class="mt-8">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <x-card.default>
                 <div class="mt-4">
@@ -43,4 +43,4 @@
 
         </div>
     </div>
-</x-app-layout>
+</x-admin-layout>

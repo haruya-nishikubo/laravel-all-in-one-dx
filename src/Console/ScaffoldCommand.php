@@ -287,6 +287,8 @@ class ScaffoldCommand extends Command
             '{{ route_resource_name }}' => $this->toSnake($this->model),
 
             '{{ lang_model }}' => $this->toSnake($this->model),
+
+            '{{ layout }}' => "x-{$this->prefix}-layout",
         ];
 
         return $this;
