@@ -9,6 +9,7 @@
     <div class="py-4">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <x-card.default>
+                <x-card.header>{{ __('actions.create') }}</x-card.header>
                 <form action="{{ route('admin.route_role.store') }}" method="POST">
                     @csrf
 
