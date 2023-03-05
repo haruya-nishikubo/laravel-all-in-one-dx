@@ -1,28 +1,22 @@
-<div class="flex items-center justify-between py-12">
+<div class="flex items-center justify-between rounded-md py-8 mt-8 ml-8 bg-gray-800/80">
     <ul>
         <li>
-            <x-admin-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
-                {{ __('Dashboard') }}
-            </x-admin-nav-link>
+            <x-sidebar.label>アクセス管理</x-sidebar.label>
         </li>
-
-        <li class="mt-4">
-            <x-admin-nav-label>アクセス管理</x-admin-nav-label>
-        </li>
-        <ul class="ml-4">
+        <ul class="ml-4 mt-4">
             @if(auth()->user()->isRouteAllowed('admin.route_role.index'))
             <li>
-                <x-admin-nav-link :href="route('admin.route_role.index')" :active="request()->routeIs('admin.route-role.*')">
+                <x-sidebar.link :href="route('admin.route_role.index')" :active="request()->routeIs('admin.route_role.*')">
                     {{ __('models.route_role.table_name') }}
-                </x-admin-nav-link>
+                </x-sidebar.link>
             </li>
             @endif
 
             @if(auth()->user()->isRouteAllowed('admin.route_policy.index'))
-            <li>
-                <x-admin-nav-link :href="route('admin.route_policy.index')" :active="request()->routeIs('admin.route-policy.*')">
+            <li class="mt-2">
+                <x-sidebar.link :href="route('admin.route_policy.index')" :active="request()->routeIs('admin.route_policy.*')">
                     {{ __('models.route_policy.table_name') }}
-                </x-admin-nav-link>
+                </x-sidebar.link>
             </li>
             @endif
         </ul>

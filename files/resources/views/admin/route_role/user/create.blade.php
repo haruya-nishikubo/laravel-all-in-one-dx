@@ -1,4 +1,4 @@
-<x-app-layout>
+<x-admin-layout>
     <div class="mt-8 mb-4 sm:px-6 lg:px-8">
         <nav class="rounded-md w-full">
             <ol class="list-reset flex">
@@ -22,4 +22,4 @@
             </form>
         </div>
     </div>
-</x-app-layout>
+</x-admin-layout>

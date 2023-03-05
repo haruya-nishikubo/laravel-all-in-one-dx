@@ -1,4 +1,4 @@
-<x-app-layout>
+<x-admin-layout>
     <div class="mt-8 mb-4 sm:px-6 lg:px-8">
         <x-breadcrumb.default :items="[
             __('models.route_policy.table_name') => null,
@@ -102,4 +102,4 @@
             </div>
         </div>
     </div>
-</x-app-layout>
+</x-admin-layout>
