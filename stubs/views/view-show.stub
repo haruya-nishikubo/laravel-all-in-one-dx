@@ -9,6 +9,7 @@
     <div class="mt-8">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <x-card.default>
+                <x-card.header>{{ __('actions.show') }}</x-card.header>
 {{ body }}
                 @if (auth()->user()->isRouteAllowed('{{ route_path }}.edit'))
                 <div class="flex justify-end mt-4">
