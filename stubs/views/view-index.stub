@@ -65,14 +65,14 @@
                         </tr>
                         @endif
 
-                        @if (auth()->user()->isRouteAllowed('{{ route_path }}.create'))
                         <tr>
                             {{ header }}
                             <x-tables.th class="text-right">
+                                @if (auth()->user()->isRouteAllowed('{{ route_path }}.create'))
                                 <x-links.button-info href="{{ route('{{ route_path }}.create') }}">{{ __('actions.create') }}</x-links.button-info>
+                                @endif
                             </x-tables.th>
                         </tr>
-                        @endif
                     </thead>
 
                     <tbody>
