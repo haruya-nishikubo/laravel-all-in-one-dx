@@ -9,6 +9,7 @@
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="py-4">
                 <x-card.default>
+                    <x-card.header>{{ __('actions.filter') }}</x-card.header>
                     <form action="{{ route('admin.route_policy.index') }}" method="GET">
                         <div class="grid grid-cols-2 gap-4 mt-4">
                             <div>
@@ -35,38 +36,14 @@
                 </x-card.default>
             </div>
 
-            @if (auth()->user()->isRouteAllowed('admin.route_policy.import'))
-            <div class="py-4">
-                <x-card.default>
-                    <form action="{{ route('admin.route_policy.import') }}" method="POST" enctype="multipart/form-data">
-                        @csrf
-
-                        <div>
-                            <x-forms.label :required="true" title="CSV">
-                                <x-forms.input type="file" name="source" required="required" />
-                            </x-forms.label>
-                        </div>
-
-                        <div class="flex justify-end mt-4">
-                            <x-forms.submit-success>{{ __('actions.import') }}</x-forms.submit-success>
-                        </div>
-                    </form>
-                </x-card.default>
-            </div>
-            @endif
-
             <x-card.default>
+                <x-card.header>{{ __('actions.index') }}</x-card.header>
                 <table class="table-auto w-full">
                     <thead>
                         @if (auth()->user()->isRouteAllowed('admin.route_policy.export'))
                         <tr>
                             <x-tables.th class="text-right" colspan="3">
                                 <x-links.button-info href="{{ route('admin.route_policy.export', array_merge($criteria, ['encoding' => 'sjis'])) }}">{{ __('actions.export') }}(win)</x-links.button-info>
-                            </x-tables.th>
-                        </tr>
-
-                        <tr>
-                            <x-tables.th class="text-right" colspan="3">
                                 <x-links.button-info href="{{ route('admin.route_policy.export', $criteria) }}">{{ __('actions.export') }}(mac)</x-links.button-info>
                             </x-tables.th>
                         </tr>
@@ -95,11 +72,33 @@
                     @endforeach
                     </tbody>
                 </table>
+
+                <div class="mt-4">
+                    {{ $route_policies->appends($criteria)->links() }}
+                </div>
             </x-card.default>
 
-            <div class="mt-4">
-                {{ $route_policies->appends($criteria)->links() }}
-            </div>
+            @if (auth()->user()->isRouteAllowed('admin.route_policy.import'))
+                <div class="py-4">
+                    <x-card.default>
+                        <x-card.header>{{ __('actions.import') }}</x-card.header>
+                        <form action="{{ route('admin.route_policy.import') }}" method="POST" enctype="multipart/form-data" class="mt-4">
+                            @csrf
+
+                            <div>
+                                <x-forms.label :required="true" title="CSV">
+                                    <x-forms.input type="file" name="source" required="required" />
+                                </x-forms.label>
+                            </div>
+
+                            <div class="flex justify-end mt-4">
+                                <x-forms.submit-success>{{ __('actions.import') }}</x-forms.submit-success>
+                            </div>
+                        </form>
+                    </x-card.default>
+                </div>
+            @endif
+
         </div>
     </div>
 </x-admin-layout>
