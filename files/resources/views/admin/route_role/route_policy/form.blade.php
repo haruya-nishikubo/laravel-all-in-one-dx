@@ -1,4 +1,4 @@
-<div class="bg-white overflow-hidden shadow-sm sm:rounded-lg px-8 py-4">
+<div class="bg-white shadow-sm sm:rounded-lg px-8 py-4 mt-8">
     <div class="mt-4">
         <ul class="list-disc">
             @foreach($route_policies as $route_policy)
