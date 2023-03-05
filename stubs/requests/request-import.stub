@@ -17,7 +17,8 @@ class ImportRequest extends FormRequest
             'source' => [
                 'required',
                 'file',
-                'mimes:csv',
+                'mimes:csv,txt',
+                'mimetypes:text/csv,text/plain',
             ],
         ];
     }

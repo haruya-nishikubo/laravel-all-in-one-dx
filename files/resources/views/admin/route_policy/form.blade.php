@@ -26,6 +26,9 @@
 
 <div>
     <div class="flex justify-end mt-4">
-        <x-forms.submit-success>{{ __('actions.save') }}</x-forms.submit-success>
+        <x-forms.submit-success>
+            <span class="material-icons align-middle">save</span>
+            <span>{{ __('actions.save') }}</span>
+        </x-forms.submit-success>
     </div>
 </div>

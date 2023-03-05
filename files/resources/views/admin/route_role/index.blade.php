@@ -9,7 +9,7 @@
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="py-4">
                 <x-card.default>
-                    <x-card.header>{{ __('actions.filter') }}</x-card.header>
+                    <x-card.header>{{ __('actions.search') }}</x-card.header>
                     <form action="{{ route('admin.route_role.index') }}" method="GET">
                         <div class="grid grid-cols-2 gap-4 mt-4">
                         <div>
@@ -29,7 +29,10 @@
                             </div>
 
                             <div class="flex justify-end">
-                                <x-forms.submit-info>{{ __('actions.filter') }}</x-forms.submit-info>
+                                <x-forms.submit-info>
+                                    <span class="material-icons align-middle">search</span>
+                                    <span>{{ __('actions.search') }}</span>
+                                </x-forms.submit-info>
                             </div>
                         </div>
                     </form>
@@ -43,8 +46,14 @@
                         @if (auth()->user()->isRouteAllowed('admin.route_role.export'))
                         <tr>
                             <x-tables.th class="text-right" colspan="2">
-                                <x-links.button-info href="{{ route('admin.route_role.export', array_merge($criteria, ['encoding' => 'sjis'])) }}">{{ __('actions.export') }}(win)</x-links.button-info>
-                                <x-links.button-info href="{{ route('admin.route_role.export', $criteria) }}">{{ __('actions.export') }}(mac)</x-links.button-info>
+                                <x-links.button-info href="{{ route('admin.route_role.export', array_merge($criteria, ['encoding' => 'sjis'])) }}">
+                                    <span class="material-icons align-middle">file_download</span>
+                                    <span>{{ __('actions.export') }}(win)</span>
+                                </x-links.button-info>
+                                <x-links.button-info href="{{ route('admin.route_role.export', $criteria) }}">
+                                    <span class="material-icons align-middle">file_download</span>
+                                    <span>{{ __('actions.export') }}(mac)</span>
+                                </x-links.button-info>
                             </x-tables.th>
                         </tr>
                         @endif
@@ -53,7 +62,10 @@
                         <tr>
                             <x-tables.th>{{ __('models.route_role.field.name') }}</x-tables.th>
                             <x-tables.th class="text-right">
-                                <x-links.button-info href="{{ route('admin.route_role.create') }}">{{ __('actions.create') }}</x-links.button-info>
+                                <x-links.button-info href="{{ route('admin.route_role.create') }}">
+                                    <span class="material-icons align-middle">create</span>
+                                    <span>{{ __('actions.create') }}</span>
+                                </x-links.button-info>
                             </x-tables.th>
                         </tr>
                         @endif
@@ -65,7 +77,10 @@
                             <x-tables.td>{{ $route_role->name }}</x-tables.td>
                             <x-tables.td class="text-right">
                                 @if (auth()->user()->isRouteAllowed('admin.route_role.show'))
-                                <x-links.button-default href="{{ route('admin.route_role.show', $route_role) }}">{{ __('actions.show') }}</x-links.button-default>
+                                <x-links.button-default href="{{ route('admin.route_role.show', $route_role) }}">
+                                    <span class="material-icons align-middle">read_more</span>
+                                    <span>{{ __('actions.show') }}</span>
+                                </x-links.button-default>
                                 @endif
                             </x-tables.td>
                         </tr>
@@ -92,7 +107,10 @@
                             </div>
 
                             <div class="flex justify-end mt-4">
-                                <x-forms.submit-success>{{ __('actions.import') }}</x-forms.submit-success>
+                                <x-forms.submit-success>
+                                    <span class="material-icons align-middle">file_upload</span>
+                                    <span>{{ __('actions.import') }}</span>
+                                </x-forms.submit-success>
                             </div>
                         </form>
                     </x-card.default>

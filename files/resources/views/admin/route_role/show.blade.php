@@ -17,7 +17,10 @@
 
                 @if (auth()->user()->isRouteAllowed('admin.route_role.edit'))
                 <div class="flex justify-end mt-4">
-                    <x-links.button-info href="{{ route('admin.route_role.edit', $route_role) }}">{{ __('actions.edit') }}</x-links.button-info>
+                    <x-links.button-info href="{{ route('admin.route_role.edit', $route_role) }}">
+                        <span class="material-icons align-middle">edit</span>
+                        <span>{{ __('actions.edit') }}</span>
+                    </x-links.button-info>
                 </div>
                 @endif
 
@@ -27,7 +30,10 @@
                         @csrf
                         @method('DELETE')
 
-                        <x-forms.submit-danger>{{ __('actions.destroy') }}</x-forms.submit-danger>
+                        <x-forms.submit-danger>
+                            <span class="material-icons align-middle">delete</span>
+                            <span>{{ __('actions.destroy') }}</span>
+                        </x-forms.submit-danger>
                     </form>
                 </div>
                 @endif
