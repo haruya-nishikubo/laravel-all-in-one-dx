@@ -9,6 +9,7 @@
     <div class="mt-8">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <x-card.default>
+                <x-card.header>{{ __('actions.show') }}</x-card.header>
                 <div class="mt-4">
                     <label class="block font-medium text-sm text-gray-700">{{ __('models.route_policy.field.name') }}</label>
                     <p>{{ $route_policy->name }}</p>
