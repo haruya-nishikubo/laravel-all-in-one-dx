@@ -15,11 +15,14 @@
 
     <div class="py-4">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            <form action="{{ route('admin.route_role.route_policy.store', $route_role) }}" method="POST">
-                @csrf
+            <x-card.default>
+                <x-card.header>{{ __('actions.create') }}</x-card.header>
+                <form action="{{ route('admin.route_role.route_policy.store', $route_role) }}" method="POST">
+                    @csrf
 
-                @include('admin.route_role.route_policy.form')
-            </form>
+                    @include('admin.route_role.route_policy.form')
+                </form>
+            </x-card.default>
         </div>
     </div>
 </x-admin-layout>

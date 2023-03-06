@@ -1,4 +1,3 @@
-<div class="bg-white shadow-sm sm:rounded-lg px-8 py-4 mt-8">
     <div class="mt-4">
         <ul class="list-disc">
             @foreach($route_policies as $route_policy)
@@ -11,10 +10,10 @@
             @endforeach
         </ul>
     </div>
-</div>
 
-<div>
     <div class="flex justify-end mt-4">
-        <button type="submit" class="btn btn-success">{{ __('actions.save') }}</button>
+        <x-forms.submit-success>
+            <span class="material-icons align-middle">save</span>
+            <span>{{ __('actions.save') }}</span>
+        </x-forms.submit-success>
     </div>
-</div>
