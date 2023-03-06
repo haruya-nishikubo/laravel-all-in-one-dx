@@ -22,7 +22,10 @@
                             </div>
 
                             <div class="flex justify-end">
-                                <x-forms.submit-info>{{ __('actions.search') }}</x-forms.submit-info>
+                                <x-forms.submit-info>
+                                    <span class="material-icons align-middle">search</span>
+                                    <span>{{ __('actions.search') }}</span>
+                                </x-forms.submit-info>
                             </div>
                         </div>
                     </form>
