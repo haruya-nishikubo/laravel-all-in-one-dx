@@ -58,17 +58,17 @@
                         </tr>
                         @endif
 
-                        @if (auth()->user()->isRouteAllowed('admin.route_policy.create'))
                         <tr>
                             <x-tables.th>{{ __('models.route_policy.field.name') }}</x-tables.th>
                             <x-tables.th class="text-right">
+                                @if (auth()->user()->isRouteAllowed('admin.route_policy.create'))
                                 <x-links.button-info href="{{ route('admin.route_policy.create') }}">
                                     <span class="material-icons align-middle">create</span>
                                     <span>{{ __('actions.create') }}</span>
                                 </x-links.button-info>
+                                @endif
                             </x-tables.th>
                         </tr>
-                        @endif
                     </thead>
 
                     <tbody>
