@@ -35,7 +35,7 @@ class {{ Controller }}Test extends TestCase
                 '{{ model }}' => $params,
             ]);
 
-        $this->assertDatabaseHas('users', $params);
+        $this->assertDatabaseHas('{{ $model }}', $params);
 
         ${{ model }} = {{ Model }}::firstWhere($params);
 
@@ -80,7 +80,7 @@ class {{ Controller }}Test extends TestCase
                 '{{ model }}' => $params,
             ]);
 
-        $this->assertDatabaseHas('users', array_merge($params, [
+        $this->assertDatabaseHas('{{ $model }}', array_merge($params, [
             'id' => ${{ model }}->id,
         ]));
 
@@ -96,9 +96,7 @@ class {{ Controller }}Test extends TestCase
         $response = $this->actingAs($this->user)
             ->delete(route('{{ view_path }}.show', ${{ model }}));
 
-        $this->assertDatabaseMissing('users', [
-            'id' => ${{ model }}->id,
-        ]);
+        $this->assertSoftDeleted(${{ model }});
 
         $response->assertStatus(302)
             ->assertRedirect(route('{{ view_path }}.index'));

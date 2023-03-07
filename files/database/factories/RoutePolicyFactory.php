@@ -18,6 +18,9 @@ class RoutePolicyFactory extends Factory
     {
         return [
             'name' => fake()->name(),
+            'allows' => [
+                'admin.route_policy.index',
+            ],
         ];
     }
 }

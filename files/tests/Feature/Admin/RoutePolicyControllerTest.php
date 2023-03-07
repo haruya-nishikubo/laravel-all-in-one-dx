@@ -35,7 +35,9 @@ class RoutePolicyControllerTest extends TestCase
                 'route_policy' => $params,
             ]);
 
-        $this->assertDatabaseHas('users', $params);
+        unset($params['allows']);
+
+        $this->assertDatabaseHas('route_policies', $params);
 
         $route_policy = RoutePolicy::firstWhere($params);
 
@@ -80,7 +82,9 @@ class RoutePolicyControllerTest extends TestCase
                 'route_policy' => $params,
             ]);
 
-        $this->assertDatabaseHas('users', array_merge($params, [
+        unset($params['allows']);
+
+        $this->assertDatabaseHas('route_policies', array_merge($params, [
             'id' => $route_policy->id,
         ]));
 
@@ -96,9 +100,7 @@ class RoutePolicyControllerTest extends TestCase
         $response = $this->actingAs($this->user)
             ->delete(route('admin.route_policy.show', $route_policy));
 
-        $this->assertDatabaseMissing('users', [
-            'id' => $route_policy->id,
-        ]);
+        $this->assertSoftDeleted($route_policy);
 
         $response->assertStatus(302)
             ->assertRedirect(route('admin.route_policy.index'));

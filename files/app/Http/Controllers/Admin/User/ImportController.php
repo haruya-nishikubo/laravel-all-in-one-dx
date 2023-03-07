@@ -63,7 +63,7 @@ class ImportController extends Controller
         }
 
         return redirect()->route('admin.user.index')
-            ->wiht('success', 'Success.');
+            ->with('success', 'Success.');
     }
 
     protected function extract(string $path): self
