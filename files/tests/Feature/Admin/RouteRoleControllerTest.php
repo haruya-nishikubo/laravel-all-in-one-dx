@@ -35,7 +35,7 @@ class RouteRoleControllerTest extends TestCase
                 'route_role' => $params,
             ]);
 
-        $this->assertDatabaseHas('users', $params);
+        $this->assertDatabaseHas('route_roles', $params);
 
         $route_role = RouteRole::firstWhere($params);
 
@@ -80,7 +80,7 @@ class RouteRoleControllerTest extends TestCase
                 'route_role' => $params,
             ]);
 
-        $this->assertDatabaseHas('users', array_merge($params, [
+        $this->assertDatabaseHas('route_roles', array_merge($params, [
             'id' => $route_role->id,
         ]));
 
@@ -96,9 +96,7 @@ class RouteRoleControllerTest extends TestCase
         $response = $this->actingAs($this->user)
             ->delete(route('admin.route_role.show', $route_role));
 
-        $this->assertDatabaseMissing('users', [
-            'id' => $route_role->id,
-        ]);
+        $this->assertSoftDeleted($route_role);
 
         $response->assertStatus(302)
             ->assertRedirect(route('admin.route_role.index'));

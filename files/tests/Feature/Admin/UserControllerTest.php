@@ -3,6 +3,7 @@
 namespace Tests\Feature\Admin;
 
 use App\Models\User;
+use Illuminate\Support\Facades\Hash;
 use Tests\TestCase;
 
 class UserControllerTest extends TestCase
@@ -34,6 +35,10 @@ class UserControllerTest extends TestCase
             ->post(route('admin.user.store'), [
                 'user' => $params,
             ]);
+
+        unset($params['password'],
+            $params['email_verified_at'],
+            $params['remember_token']);
 
         $this->assertDatabaseHas('users', $params);
 
@@ -80,6 +85,10 @@ class UserControllerTest extends TestCase
                 'user' => $params,
             ]);
 
+        unset($params['password'],
+            $params['email_verified_at'],
+            $params['remember_token']);
+
         $this->assertDatabaseHas('users', array_merge($params, [
             'id' => $user->id,
         ]));
@@ -96,9 +105,7 @@ class UserControllerTest extends TestCase
         $response = $this->actingAs($this->user)
             ->delete(route('admin.user.show', $user));
 
-        $this->assertDatabaseMissing('users', [
-            'id' => $user->id,
-        ]);
+        $this->assertSoftDeleted($user);
 
         $response->assertStatus(302)
             ->assertRedirect(route('admin.user.index'));
