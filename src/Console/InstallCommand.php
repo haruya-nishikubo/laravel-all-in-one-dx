@@ -28,56 +28,41 @@ class InstallCommand extends Command
      */
     public function handle()
     {
-        $this->installModels()
-            ->installMigrations()
-            ->installControllers()
-            ->installRequests()
+        $this->installApp()
+            ->installDatabase()
+            ->installLang()
             ->installResources()
             ->installRoutes()
-            ->installMiddlewares()
-            ->installExceptions()
-            ->installLangModels()
-            ->installFactories()
             ->installTests();
 
         return self::SUCCESS;
     }
 
-    protected function installModels(): self
+    protected function installApp(): self
     {
         (new Filesystem())->copyDirectory(
-            __DIR__ . '/../../files/app/Models',
-            base_path('app/Models')
+            __DIR__ . '/../../files/app',
+            base_path('app')
         );
 
         return $this;
     }
 
-    protected function installMigrations(): self
+    protected function installDatabase(): self
     {
         (new Filesystem())->copyDirectory(
-            __DIR__ . '/../../files/database/migrations',
-            base_path('database/migrations')
+            __DIR__ . '/../../files/database',
+            base_path('database')
         );
 
         return $this;
     }
 
-    protected function installControllers(): self
+    protected function installLang(): self
     {
         (new Filesystem())->copyDirectory(
-            __DIR__ . '/../../files/app/Http/Controllers',
-            base_path('app/Http/Controllers')
-        );
-
-        return $this;
-    }
-
-    protected function installRequests(): self
-    {
-        (new Filesystem())->copyDirectory(
-            __DIR__ . '/../../files/app/Http/Requests',
-            base_path('app/Http/Requests')
+            __DIR__ . '/../../files/lang',
+            base_path('lang')
         );
 
         return $this;
@@ -98,67 +83,6 @@ class InstallCommand extends Command
         (new Filesystem())->copyDirectory(
             __DIR__ . '/../../files/routes',
             base_path('routes')
-        );
-
-        return $this;
-    }
-
-    protected function installMiddlewares(): self
-    {
-        (new Filesystem())->copyDirectory(
-            __DIR__ . '/../../files/app/Http/Middleware',
-            base_path('app/Http/Middleware')
-        );
-
-        return $this;
-    }
-
-    protected function installExceptions(): self
-    {
-        (new Filesystem())->copyDirectory(
-            __DIR__ . '/../../files/app/Exceptions',
-            base_path('app/Exceptions')
-        );
-
-        return $this;
-    }
-
-    protected function installLangModels(): self
-    {
-        $target_path = base_path('lang/ja/models.php');
-        $target = (file_exists(($target_path)))
-            ? require $target_path
-            : [];
-
-        $source_path = __DIR__ . '/../../files/lang/ja/models.php';
-        $source = (file_exists(($source_path)))
-            ? require $source_path
-            : [];
-
-        $lang = array_merge($target, $source);
-
-        if (! file_exists(dirname($target_path))) {
-            mkdir(dirname($target_path), 0755, true);
-        }
-
-        file_put_contents($target_path,
-            "<?php\n\nreturn " . str_replace([
-                'array (',
-                ')'
-            ], [
-                '[',
-                ']',
-            ], var_export($lang, true)) . ';'
-        );
-
-        return $this;
-    }
-
-    public function installFactories(): self
-    {
-        (new Filesystem())->copyDirectory(
-            __DIR__ . '/../../files/database/factories',
-            base_path('database/factories')
         );
 
         return $this;
