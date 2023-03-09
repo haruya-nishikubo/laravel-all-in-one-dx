@@ -1,6 +1,6 @@
 <?php
 
-namespace Hrynskb\AllInOneDx\Console;
+namespace HaruyaNishikubo\AllInOneDx\Console;
 
 use Illuminate\Console\Command;
 use Illuminate\Filesystem\Filesystem;

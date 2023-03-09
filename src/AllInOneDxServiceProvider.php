@@ -1,9 +1,9 @@
 <?php
 
-namespace Hrynskb\AllInOneDx;
+namespace HaruyaNishikubo\AllInOneDx;
 
-use Hrynskb\AllInOneDx\Console\InstallCommand;
-use Hrynskb\AllInOneDx\Console\ScaffoldCommand;
+use HaruyaNishikubo\AllInOneDx\Console\InstallCommand;
+use HaruyaNishikubo\AllInOneDx\Console\ScaffoldCommand;
 use Illuminate\Support\ServiceProvider;
 
 class AllInOneDxServiceProvider extends ServiceProvider

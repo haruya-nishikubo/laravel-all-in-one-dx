@@ -17,7 +17,7 @@ $ php artisan breeze:install
             "Database\\Factories\\": "database/factories/",
             "Database\\Seeders\\": "database/seeders/",
 
-            "Hrynskb\\AllInOneDx\\": "vendor/hrynskb/laravel-all-in-one-dx/src"
+            "HaruyaNishikubo\\AllInOneDx\\": "vendor/hrynskb/laravel-all-in-one-dx/src"
         }
     },
 ```
@@ -33,7 +33,7 @@ $ php artisan breeze:install
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
 
-        Hrynskb\AllInOneDx\AllInOneDxServiceProvider::class,
+        HaruyaNishikubo\AllInOneDx\AllInOneDxServiceProvider::class,
 ```
 
 ## app/Models/User.php

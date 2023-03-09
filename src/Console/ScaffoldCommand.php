@@ -1,6 +1,6 @@
 <?php
 
-namespace Hrynskb\AllInOneDx\Console;
+namespace HaruyaNishikubo\AllInOneDx\Console;
 
 use Exception;
 use Illuminate\Console\Command;

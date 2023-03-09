@@ -14,13 +14,13 @@
     },
     "autoload": {
       "psr-4": {
-        "Hrynskb\\AllInOneDx\\": "src/"
+        "HaruyaNishikubo\\AllInOneDx\\": "src/"
       }
     },
     "extra": {
       "laravel": {
         "providers": [
-          "Hrynskb\\AllInOneDx\\AllInOneDxServiceProvider"
+          "HaruyaNishikubo\\AllInOneDx\\AllInOneDxServiceProvider"
         ]
       }
     }
