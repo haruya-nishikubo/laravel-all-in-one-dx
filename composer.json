@@ -7,7 +7,7 @@
         }
     ],
     "require": {
-        "laravel/laravel": "~9"
+        "laravel/laravel": "~9.0"
     },
     "require-dev": {
         "barryvdh/laravel-ide-helper": "^2.13"
