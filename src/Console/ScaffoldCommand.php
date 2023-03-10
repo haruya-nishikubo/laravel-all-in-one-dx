@@ -46,6 +46,7 @@ class ScaffoldCommand extends Command
         'request-index' => __DIR__ . '/../../stubs/requests/request-index.stub',
         'request-index-query-line-string' => __DIR__ . '/../../stubs/requests/request-index-query-line-string.stub',
         'request-index-query-line-datetime' => __DIR__.'/../../stubs/requests/request-index-query-line-datetime.stub',
+        'request-index-query-line-float' => __DIR__ . '/../../stubs/requests/request-index-query-line-float.stub',
         'request-store' => __DIR__ . '/../../stubs/requests/request-store.stub',
         'request-store-rule-line' => __DIR__ . '/../../stubs/requests/request-store-rule-line.stub',
         'request-update' => __DIR__ . '/../../stubs/requests/request-update.stub',
