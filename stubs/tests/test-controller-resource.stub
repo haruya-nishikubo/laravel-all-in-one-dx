@@ -35,7 +35,7 @@ class {{ Controller }}Test extends TestCase
                 '{{ model }}' => $params,
             ]);
 
-        $this->assertDatabaseHas('{{ model }}', $params);
+        $this->assertDatabaseHas('{{ models }}', $params);
 
         ${{ model }} = {{ Model }}::firstWhere($params);
 
@@ -80,7 +80,7 @@ class {{ Controller }}Test extends TestCase
                 '{{ model }}' => $params,
             ]);
 
-        $this->assertDatabaseHas('{{ model }}', array_merge($params, [
+        $this->assertDatabaseHas('{{ models }}', array_merge($params, [
             'id' => ${{ model }}->id,
         ]));
 
