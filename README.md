@@ -1,28 +1,29 @@
+# About
+- excel や spreadsheet をメインに運用されている業務をシステム化するためのコマンドを提供
+  - `all-in-one-dx:install`: 必要なファイルをインストール
+    - アカウント単位でアクセス権限を管理する機能が含まれる
+    - アップロードされたファイル情報を記録するテーブルが含まれる
+  - `all-in-one-dx:scaffold`: resource, import, export の controller を生成
+    - モデルのフィールドから自動的にロジックを実装した状態で生成される
+
 # Requirement
+- 事前に laravel/breeze を導入する必要あり
+
 ```shell
-$ composer require laravel/breeze --dev
+composer require laravel/breeze --dev
+```
 
-$ yarn install
-
-$ php artisan breeze:install
+```shell
+php artisan breeze:install
 ```
 
 # Installation
-
-## composer.json
-```json
-    "autoload": {
-        "psr-4": {
-            "App\\": "app/",
-            "Database\\Factories\\": "database/factories/",
-            "Database\\Seeders\\": "database/seeders/",
-
-            "HaruyaNishikubo\\AllInOneDx\\": "vendor/hrynskb/laravel-all-in-one-dx/src"
-        }
-    },
+```shell
+composer require haruya-nishikubo/laravel-all-in-one-dx --dev
 ```
 
 ## app/config.php
+- AllInOneDxServiceProvider を追加
 ```php
         /*
          * Application Service Providers...
@@ -37,6 +38,7 @@ $ php artisan breeze:install
 ```
 
 ## app/Models/User.php
+- HasRouteRole を追加
 ```php
 namespace App\Models;
 
@@ -54,6 +56,7 @@ class User extends Authenticatable
 ```
 
 ## app/Http/Kernel.php
+- EnsureRoutePolicy を追加
 ```php
     protected $middleware = [
         // \App\Http\Middleware\TrustHosts::class,
@@ -68,7 +71,20 @@ class User extends Authenticatable
 ```
 
 ## routes/web.php
+- require を追加
 ```php
 require __DIR__ . '/web/admin/route_policy.php';
 require __DIR__ . '/web/admin/route_role.php';
+require __DIR__ . '/web/admin/user.php';
+```
+
+## all-in-one-dx:install
+- 必要なファイルをインストール
+```shell
+php artisan all-in-one-dx:install
+```
+
+# Usage
+```shell
+php artisan all-in-one-dx:scaffold --model=User --prefix=Admin --debug --run
 ```
