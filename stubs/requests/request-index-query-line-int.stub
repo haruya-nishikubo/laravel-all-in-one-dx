@@ -1,0 +1,3 @@
+        if (isset($validated['{{ model }}']['{{ field }}'])) {
+            $query->where('{{ field }}', $validated['{{ model }}']['{{ field }}']);
+        }

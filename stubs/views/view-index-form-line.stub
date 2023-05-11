@@ -1,0 +1,7 @@
+                        <div>
+                            <x-forms.label :title="__('models.{{ model }}.field.{{ field }}')">
+                                <x-forms.input type="{{ type }}"
+                                    name="{{ model }}[{{ field }}]"
+                                    value="{{ old('{{ model }}.{{ field }}', $criteria['{{ model }}']['{{ field }}'] ?? '') }}" />
+                            </x-forms.label>
+                        </div>

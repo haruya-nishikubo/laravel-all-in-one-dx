@@ -1,0 +1,104 @@
+<?php
+
+namespace {{ namespace_test }};
+
+use {{ namespace_model }}\{{ Model }};
+use Tests\TestCase;
+
+class {{ Controller }}Test extends TestCase
+{
+    public function testIndex()
+    {
+        $response = $this->actingAs($this->user)
+            ->get(route('{{ view_path }}.index'));
+
+        $response->assertStatus(200)
+            ->assertViewIs('{{ view_path }}.index');
+    }
+
+    public function testCreate()
+    {
+        $response = $this->actingAs($this->user)
+            ->get(route('{{ view_path }}.create'));
+
+        $response->assertStatus(200)
+            ->assertViewIs('{{ view_path }}.create');
+    }
+
+    public function testStore()
+    {
+        $params = {{ Model }}::factory()
+            ->definition();
+
+        $response = $this->actingAs($this->user)
+            ->post(route('{{ view_path }}.store'), [
+                '{{ model }}' => $params,
+            ]);
+
+        $this->assertDatabaseHas('{{ models }}', $params);
+
+        ${{ model }} = {{ Model }}::firstWhere($params);
+
+        $response->assertStatus(302)
+            ->assertRedirect(route('{{ view_path }}.show', ${{ model }}));
+    }
+
+    public function testShow()
+    {
+        ${{ model }} = {{ Model }}::factory()
+            ->create();
+
+        $response = $this->actingAs($this->user)
+            ->get(route('{{ view_path }}.show', ${{ model }}));
+
+        $response->assertStatus(200)
+            ->assertViewIs('{{ view_path }}.show');
+    }
+
+    public function testEdit()
+    {
+        ${{ model }} = {{ Model }}::factory()
+            ->create();
+
+        $response = $this->actingAs($this->user)
+            ->get(route('{{ view_path }}.edit', ${{ model }}));
+
+        $response->assertStatus(200)
+            ->assertViewIs('{{ view_path }}.edit');
+    }
+
+    public function testUpdate()
+    {
+        ${{ model }} = {{ Model }}::factory()
+            ->create();
+
+        $params = {{ Model }}::factory()
+            ->definition();
+
+        $response = $this->actingAs($this->user)
+            ->put(route('{{ view_path }}.update', ${{ model }}), [
+                '{{ model }}' => $params,
+            ]);
+
+        $this->assertDatabaseHas('{{ models }}', array_merge($params, [
+            'id' => ${{ model }}->id,
+        ]));
+
+        $response->assertStatus(302)
+            ->assertRedirect(route('{{ view_path }}.show', ${{ model }}));
+    }
+
+    public function testDestroy()
+    {
+        ${{ model }} = {{ Model }}::factory()
+            ->create();
+
+        $response = $this->actingAs($this->user)
+            ->delete(route('{{ view_path }}.show', ${{ model }}));
+
+        $this->assertSoftDeleted(${{ model }});
+
+        $response->assertStatus(302)
+            ->assertRedirect(route('{{ view_path }}.index'));
+    }
+}

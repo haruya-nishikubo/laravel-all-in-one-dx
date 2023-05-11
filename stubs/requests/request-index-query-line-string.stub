@@ -1,0 +1,3 @@
+        if (isset($validated['{{ model }}']['{{ field }}'])) {
+            $query->where('{{ field }}', 'LIKE', "%{$validated['{{ model }}']['{{ field }}']}%");
+        }

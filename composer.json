@@ -1,0 +1,28 @@
+{
+    "name": "haruya-nishikubo/laravel-all-in-one-dx",
+    "authors": [
+        {
+            "name": "Haruya Nishikubo",
+            "email": "haruya.nishikubo@gmail.com"
+        }
+    ],
+    "require": {
+        "laravel/framework": "^9.19"
+    },
+    "require-dev": {
+        "barryvdh/laravel-ide-helper": "^2.13",
+        "laravel/pint": "^1.5"
+    },
+    "autoload": {
+      "psr-4": {
+        "HaruyaNishikubo\\AllInOneDx\\": "src/"
+      }
+    },
+    "extra": {
+      "laravel": {
+        "providers": [
+          "HaruyaNishikubo\\AllInOneDx\\AllInOneDxServiceProvider"
+        ]
+      }
+    }
+}

@@ -1,0 +1,7 @@
+        if (isset($validated['{{ model }}']['start_{{ field }}'])) {
+            $query->where('{{ field }}', '>=', "{$validated['{{ model }}']['start_{{ field }}']}");
+        }
+
+        if (isset($validated['{{ model }}']['end_{{ field }}'])) {
+            $query->where('{{ field }}', '<', "{$validated['{{ model }}']['end_{{ field }}']}");
+        }
