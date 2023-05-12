@@ -38,34 +38,34 @@ class ScaffoldCommand extends Command
     protected array $publish_dirs = [];
 
     protected array $stub_path = [
-        'controller-resource' => __DIR__ . '/../../stubs/controllers/controller-resource.stub',
-        'controller-export' => __DIR__ . '/../../stubs/controllers/controller-export.stub',
-        'controller-import' => __DIR__ . '/../../stubs/controllers/controller-import.stub',
-        'controller-import-rule-line' => __DIR__ . '/../../stubs/controllers/controller-import-rule-line.stub',
-        'request-index' => __DIR__ . '/../../stubs/requests/request-index.stub',
-        'request-index-query-line-string' => __DIR__ . '/../../stubs/requests/request-index-query-line-string.stub',
-        'request-index-query-line-datetime' => __DIR__ . '/../../stubs/requests/request-index-query-line-datetime.stub',
-        'request-index-query-line-float' => __DIR__ . '/../../stubs/requests/request-index-query-line-float.stub',
-        'request-index-query-line-int' => __DIR__ . '/../../stubs/requests/request-index-query-line-int.stub',
-        'request-store' => __DIR__ . '/../../stubs/requests/request-store.stub',
-        'request-store-rule-line' => __DIR__ . '/../../stubs/requests/request-store-rule-line.stub',
-        'request-update' => __DIR__ . '/../../stubs/requests/request-update.stub',
-        'request-export' => __DIR__ . '/../../stubs/requests/request-export.stub',
-        'request-import' => __DIR__ . '/../../stubs/requests/request-import.stub',
-        'view-create' => __DIR__ . '/../../stubs/views/view-create.stub',
-        'view-edit' => __DIR__ . '/../../stubs/views/view-edit.stub',
-        'view-form' => __DIR__ . '/../../stubs/views/view-form.stub',
-        'view-form-input' => __DIR__ . '/../../stubs/views/view-form-input.stub',
-        'view-index' => __DIR__ . '/../../stubs/views/view-index.stub',
-        'view-index-form-line' => __DIR__ . '/../../stubs/views/view-index-form-line.stub',
-        'view-show' => __DIR__ . '/../../stubs/views/view-show.stub',
-        'view-show-body-line' => __DIR__ . '/../../stubs/views/view-show-body-line.stub',
-        'lang' => __DIR__ . '/../../stubs/lang/lang.stub',
-        'lang-actions' => __DIR__ . '/../../stubs/lang/lang-actions.stub',
-        'routes-web' => __DIR__ . '/../../stubs/routes/routes-web.stub',
-        'test-controller-resource' => __DIR__ . '/../../stubs/tests/test-controller-resource.stub',
-        'test-controller-export' => __DIR__ . '/../../stubs/tests/test-controller-export.stub',
-        'test-controller-import' => __DIR__ . '/../../stubs/tests/test-controller-import.stub',
+        'controller-resource' => __DIR__ . '/../../../stubs/controllers/controller-resource.stub',
+        'controller-export' => __DIR__ . '/../../../stubs/controllers/controller-export.stub',
+        'controller-import' => __DIR__ . '/../../../stubs/controllers/controller-import.stub',
+        'controller-import-rule-line' => __DIR__ . '/../../../stubs/controllers/controller-import-rule-line.stub',
+        'request-index' => __DIR__ . '/../../../stubs/requests/request-index.stub',
+        'request-index-query-line-string' => __DIR__ . '/../../../stubs/requests/request-index-query-line-string.stub',
+        'request-index-query-line-datetime' => __DIR__ . '/../../../stubs/requests/request-index-query-line-datetime.stub',
+        'request-index-query-line-float' => __DIR__ . '/../../../stubs/requests/request-index-query-line-float.stub',
+        'request-index-query-line-int' => __DIR__ . '/../../../stubs/requests/request-index-query-line-int.stub',
+        'request-store' => __DIR__ . '/../../../stubs/requests/request-store.stub',
+        'request-store-rule-line' => __DIR__ . '/../../../stubs/requests/request-store-rule-line.stub',
+        'request-update' => __DIR__ . '/../../../stubs/requests/request-update.stub',
+        'request-export' => __DIR__ . '/../../../stubs/requests/request-export.stub',
+        'request-import' => __DIR__ . '/../../../stubs/requests/request-import.stub',
+        'view-create' => __DIR__ . '/../../../stubs/views/view-create.stub',
+        'view-edit' => __DIR__ . '/../../../stubs/views/view-edit.stub',
+        'view-form' => __DIR__ . '/../../../stubs/views/view-form.stub',
+        'view-form-input' => __DIR__ . '/../../../stubs/views/view-form-input.stub',
+        'view-index' => __DIR__ . '/../../../stubs/views/view-index.stub',
+        'view-index-form-line' => __DIR__ . '/../../../stubs/views/view-index-form-line.stub',
+        'view-show' => __DIR__ . '/../../../stubs/views/view-show.stub',
+        'view-show-body-line' => __DIR__ . '/../../../stubs/views/view-show-body-line.stub',
+        'lang' => __DIR__ . '/../../../stubs/lang/lang.stub',
+        'lang-actions' => __DIR__ . '/../../../stubs/lang/lang-actions.stub',
+        'routes-web' => __DIR__ . '/../../../stubs/routes/routes-web.stub',
+        'test-controller-resource' => __DIR__ . '/../../../stubs/tests/test-controller-resource.stub',
+        'test-controller-export' => __DIR__ . '/../../../stubs/tests/test-controller-export.stub',
+        'test-controller-import' => __DIR__ . '/../../../stubs/tests/test-controller-import.stub',
     ];
 
     protected const INDENT = '    ';
@@ -403,7 +403,7 @@ class ScaffoldCommand extends Command
     {
         $replacements = array_merge($this->replacements, [
             '{{ transform }}' => collect($this->properties)->map(function ($value, $index) {
-                return str_repeat(self::INDENT, 4) . "'{$value['name']}' => " . '$v[' . $index . '],';
+                return str_repeat(self::INDENT, 4) . "'{$value['name']}' => " . '$v[alphabets_to_index(\'' . $this->indexToAlphabets($index) . '\')],';
             })->implode("\n"),
 
             '{{ rules }}' => collect($this->properties)->map(function ($value) {
@@ -960,5 +960,26 @@ class ScaffoldCommand extends Command
         return Str::of($value)
             ->plural()
             ->value();
+    }
+
+    /**
+     * index を alphabets に変換する
+     * 0 => A
+     * 26 => AA
+     *
+     * @param int $index
+     * @return string
+     */
+    protected function indexToAlphabets(int $index): string
+    {
+        $alphabets = range('A', 'Z');
+
+        $result = '';
+        while ($index >= 0) {
+            $result = $alphabets[$index % 26] . $result;
+            $index = (int) ($index / 26) - 1;
+        }
+
+        return $result;
     }
 }
