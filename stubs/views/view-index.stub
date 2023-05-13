@@ -7,7 +7,7 @@
 
     <div class="py-4">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            {!! list !!}
+            {{-- list --}}
             <div class="py-4">
                 <x-card.default>
                     <x-card.header>{{ __('actions.index') }}</x-card.header>
@@ -66,7 +66,7 @@
                 </x-card.default>
             </div>
 
-            {!! search !!}
+            {{-- search --}}
             <div class="py-4">
                 <x-card.default>
                     <x-card.header>{{ __('actions.search') }}</x-card.header>
@@ -92,7 +92,7 @@
                 </x-card.default>
             </div>
 
-            {!! import !!}
+            {{-- import --}}
             @if (auth()->user()->isRouteAllowed('{{ route_path }}.import'))
             <div class="py-4">
                 <x-card.default>
