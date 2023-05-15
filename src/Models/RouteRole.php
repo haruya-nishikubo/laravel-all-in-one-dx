@@ -23,7 +23,7 @@ class RouteRole extends Model
 
     public function users()
     {
-        return $this->belongsToMany(User::class);
+        return $this->belongsToMany(\App\Models\User::class);
     }
 
     protected static function newFactory()
