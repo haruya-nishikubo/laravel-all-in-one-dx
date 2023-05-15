@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Admin\User;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\User\ImportRequest;
-use HaruyaNishikubo\AllInOneDx\UploadFileInfo;
+use HaruyaNishikubo\AllInOneDx\Models\UploadFileInfo;
 use App\Models\User;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;

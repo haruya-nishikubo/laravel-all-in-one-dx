@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Admin\RouteRole;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\RouteRole\ImportRequest;
-use HaruyaNishikubo\AllInOneDx\UploadFileInfo;
+use HaruyaNishikubo\AllInOneDx\Models\UploadFileInfo;
 use HaruyaNishikubo\AllInOneDx\Models\RouteRole;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
