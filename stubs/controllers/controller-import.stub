@@ -5,7 +5,7 @@ namespace {{ namespace_controller }}\{{ Model }};
 use App\Http\Controllers\Controller;
 use {{ namespace_request }}\ImportRequest;
 use {{ namespace_model }}\{{ Model }};
-use HaruyaNishikubo\AllInOneDx\UploadFileInfo;
+use HaruyaNishikubo\AllInOneDx\Models\UploadFileInfo;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Validator as FacadesValidator;
