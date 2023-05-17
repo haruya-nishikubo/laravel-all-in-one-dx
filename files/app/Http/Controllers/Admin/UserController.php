@@ -45,7 +45,6 @@ class UserController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  StoreRequest  $request
      * @return \Illuminate\Http\Response
      */
     public function store(StoreRequest $request)
@@ -53,6 +52,9 @@ class UserController extends Controller
         $validated = $request->validated();
 
         $user = new User($validated['user']);
+        $user->fill([
+            'password' => $validated['user']['password'],
+        ]);
 
         if (! $user->save()) {
             return back()->withInput()
@@ -66,7 +68,6 @@ class UserController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  User  $user
      * @return \Illuminate\Http\Response
      */
     public function show(User $user)
@@ -79,7 +80,6 @@ class UserController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  User  $user
      * @return \Illuminate\Http\Response
      */
     public function edit(User $user)
@@ -92,8 +92,6 @@ class UserController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  UpdateRequest  $request
-     * @param  User  $user
      * @return \Illuminate\Http\Response
      */
     public function update(UpdateRequest $request, User $user)
@@ -114,7 +112,6 @@ class UserController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  User  $user
      * @return \Illuminate\Http\Response
      */
     public function destroy(User $user)

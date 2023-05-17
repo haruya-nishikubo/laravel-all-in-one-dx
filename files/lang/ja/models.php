@@ -8,6 +8,8 @@ return [
             'name' => '名前',
             'email' => 'メールアドレス',
             'password' => 'パスワード',
+            'password_confirmation' => 'パスワード (確認)',
+            'email_verified_at' => 'メールアドレス確認日時',
         ],
     ],
     'route_policy' => [

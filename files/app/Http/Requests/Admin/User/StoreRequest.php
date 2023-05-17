@@ -26,6 +26,12 @@ class StoreRequest extends FormRequest
 
             'user.password' => [
                 'required',
+                'confirmed',
+                'string',
+            ],
+
+            'user.password_confirmation' => [
+                'required',
                 'string',
             ],
         ];
