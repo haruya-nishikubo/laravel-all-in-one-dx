@@ -13,7 +13,52 @@
                 <form action="{{ route('admin.user.store') }}" method="POST">
                     @csrf
 
-                    @include('admin.user.form')
+                    <div class="mt-4">
+                        <x-forms.label :required="true"
+                                       :title="__('models.user.field.name')">
+                            <x-forms.input type="text"
+                                           name="user[name]"
+                                           value="{{ old('user.name', $user->name) }}"
+                                           required="required" />
+                        </x-forms.label>
+                    </div>
+
+                    <div class="mt-4">
+                        <x-forms.label :required="true"
+                                       :title="__('models.user.field.email')">
+                            <x-forms.input type="text"
+                                           name="user[email]"
+                                           value="{{ old('user.email', $user->email) }}"
+                                           required="required" />
+                        </x-forms.label>
+                    </div>
+
+                    <div class="mt-4">
+                        <x-forms.label :required="true"
+                                       :title="__('models.user.field.password')">
+                            <x-forms.input type="password"
+                                           name="user[password]"
+                                           value=""
+                                           required="required" />
+                        </x-forms.label>
+                    </div>
+
+                    <div class="mt-4">
+                        <x-forms.label :required="true"
+                                       :title="__('models.user.field.password_confirmation')">
+                            <x-forms.input type="password"
+                                           name="user[password_confirmation]"
+                                           value=""
+                                           required="required" />
+                        </x-forms.label>
+                    </div>
+
+                    <div class="flex justify-end mt-4">
+                        <x-forms.submit-success>
+                            <span class="material-icons align-middle">save</span>
+                            <span>{{ __('actions.save') }}</span>
+                        </x-forms.submit-success>
+                    </div>
                 </form>
             </x-card.default>
         </div>

@@ -14,6 +14,7 @@ class UpdateRequest extends StoreRequest
         $rules = parent::rules();
 
         unset($rules['user.password']);
+        unset($rules['user.password_confirmation']);
 
         return $rules;
     }
