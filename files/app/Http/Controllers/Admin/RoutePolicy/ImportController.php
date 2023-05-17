@@ -4,8 +4,8 @@ namespace App\Http\Controllers\Admin\RoutePolicy;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\RoutePolicy\ImportRequest;
-use HaruyaNishikubo\AllInOneDx\Models\UploadFileInfo;
 use HaruyaNishikubo\AllInOneDx\Models\RoutePolicy;
+use HaruyaNishikubo\AllInOneDx\Models\UploadFileInfo;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Validator as FacadesValidator;

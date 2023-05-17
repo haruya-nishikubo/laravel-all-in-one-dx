@@ -1,10 +1,10 @@
 <?php
 
-use App\Http\Controllers\Admin\RouteRole\RoutePolicyController;
-use App\Http\Controllers\Admin\RouteRoleController;
-use App\Http\Controllers\Admin\RouteRole\ImportController;
 use App\Http\Controllers\Admin\RouteRole\ExportController;
+use App\Http\Controllers\Admin\RouteRole\ImportController;
+use App\Http\Controllers\Admin\RouteRole\RoutePolicyController;
 use App\Http\Controllers\Admin\RouteRole\UserController;
+use App\Http\Controllers\Admin\RouteRoleController;
 use Illuminate\Support\Facades\Route;
 
 Route::middleware(['auth'])
