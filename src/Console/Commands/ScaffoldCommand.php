@@ -967,7 +967,7 @@ class ScaffoldCommand extends Command
      * 0 => A
      * 26 => AA
      *
-     * @param int $index
+     * @param  int  $index
      * @return string
      */
     protected function indexToAlphabets(int $index): string

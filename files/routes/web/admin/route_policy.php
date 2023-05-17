@@ -1,8 +1,8 @@
 <?php
 
-use App\Http\Controllers\Admin\RoutePolicyController;
-use App\Http\Controllers\Admin\RoutePolicy\ImportController;
 use App\Http\Controllers\Admin\RoutePolicy\ExportController;
+use App\Http\Controllers\Admin\RoutePolicy\ImportController;
+use App\Http\Controllers\Admin\RoutePolicyController;
 use Illuminate\Support\Facades\Route;
 
 Route::middleware(['auth'])
