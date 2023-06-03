@@ -36,7 +36,7 @@
 
                 @if (auth()->user()->isRouteAllowed('admin.user.destroy'))
                 <div class="flex justify-end mt-4">
-                    <form actions="{{ route('admin.user.destroy', $user) }}" method="POST" onsubmit="return confirm('{{ __('actions.confirm-destroy') }}')">
+                    <form action="{{ route('admin.user.destroy', $user) }}" method="POST" onsubmit="return confirm('{{ __('actions.confirm-destroy') }}')">
                         @csrf
                         @method('DELETE')
 
