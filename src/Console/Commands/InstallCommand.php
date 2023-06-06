@@ -33,7 +33,8 @@ class InstallCommand extends Command
             ->installLang()
             ->installResources()
             ->installRoutes()
-            ->installTests();
+            ->installTests()
+            ->installTailwindConfig();
 
         return self::SUCCESS;
     }
