@@ -5,7 +5,7 @@
 @if ($errors->has($key))
     <ul class="list-disc ml-4 mt-2">
         @foreach($errors->get($key) as $error)
-            <li class="text-red-500 text-sm">{{ $error }}</li>
+            <li class="text-danger-500 text-sm">{{ $error }}</li>
         @endforeach
     </ul>
 @endif
