@@ -97,4 +97,14 @@ class InstallCommand extends Command
 
         return $this;
     }
+
+    public function installTailwindConfig(): self
+    {
+        (new Filesystem())->copyDirectory(
+            __DIR__ . '/../../../files/tailwind-config',
+            base_path('tailwind-config')
+        );
+
+        return $this;
+    }
 }
