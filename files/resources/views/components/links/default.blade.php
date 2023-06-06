@@ -1,1 +1,1 @@
-<a {{ $attributes->class(['font-medium text-blue-600 dark:text-blue-500 hover:underline']) }}>{{ $slot }}</a>
+<a {{ $attributes->class(['font-medium text-info-600 dark:text-info-500 hover:underline']) }}>{{ $slot }}</a>
