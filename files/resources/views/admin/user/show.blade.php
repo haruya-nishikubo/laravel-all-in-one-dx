@@ -11,17 +11,17 @@
             <x-card.default>
                 <x-card.header>{{ __('actions.show') }}</x-card.header>
                 <div class="mt-4">
-                    <label class="block font-medium text-sm text-gray-700">{{ __('models.user.field.name') }}</label>
+                    <label class="block font-medium text-sm text-dark-700">{{ __('models.user.field.name') }}</label>
                     <p>{{ $user->name }}</p>
                 </div>
 
                 <div class="mt-4">
-                    <label class="block font-medium text-sm text-gray-700">{{ __('models.user.field.email') }}</label>
+                    <label class="block font-medium text-sm text-dark-700">{{ __('models.user.field.email') }}</label>
                     <p>{{ $user->email }}</p>
                 </div>
 
                 <div class="mt-4">
-                    <label class="block font-medium text-sm text-gray-700">{{ __('models.user.field.email_verified_at') }}</label>
+                    <label class="block font-medium text-sm text-dark-700">{{ __('models.user.field.email_verified_at') }}</label>
                     <p>{{ $user->email_verified_at }}</p>
                 </div>
 

@@ -11,12 +11,12 @@
             <x-card.default>
                 <x-card.header>{{ __('actions.show') }}</x-card.header>
                 <div class="mt-4">
-                    <label class="block font-medium text-sm text-gray-700">{{ __('models.route_policy.field.name') }}</label>
+                    <label class="block font-medium text-sm text-dark-700">{{ __('models.route_policy.field.name') }}</label>
                     <p>{{ $route_policy->name }}</p>
                 </div>
 
                 <div class="mt-4">
-                    <label class="block font-medium text-sm text-gray-700">{{ __('models.route_policy.field.allows') }}</label>
+                    <label class="block font-medium text-sm text-dark-700">{{ __('models.route_policy.field.allows') }}</label>
                     <ul class="list-disc">
                         @foreach($route_policy->allows ?? [] as $route)
                             <li>{{ $route }}</li>
