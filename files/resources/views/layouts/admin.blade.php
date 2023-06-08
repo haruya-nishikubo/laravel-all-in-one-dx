@@ -20,7 +20,7 @@
             @include('layouts.admin.navigation')
         </div>
 
-        <div class="min-h-screen bg-gray-100">
+        <div class="min-h-screen bg-dark-100">
             <div class="flex">
                 <!-- Page Sidebar -->
                 <div class="flex flex-col w-96 h-full">

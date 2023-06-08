@@ -1,4 +1,4 @@
-<div class="flex items-center justify-between rounded-md py-8 mt-8 ml-8 bg-gray-800/80">
+<div class="flex items-center justify-between rounded-md py-8 mt-8 ml-8 bg-dark-800/80">
     <ul>
         <li>
             <x-sidebar.label>アクセス管理</x-sidebar.label>

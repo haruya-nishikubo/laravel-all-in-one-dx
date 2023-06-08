@@ -11,7 +11,7 @@
             <x-card.default>
                 <x-card.header>{{ __('actions.show') }}</x-card.header>
                 <div class="mt-4">
-                    <label class="block font-medium text-sm text-gray-700">{{ __('models.route_role.field.name') }}</label>
+                    <label class="block font-medium text-sm text-dark-700">{{ __('models.route_role.field.name') }}</label>
                     <p>{{ $route_role->name }}</p>
                 </div>
 

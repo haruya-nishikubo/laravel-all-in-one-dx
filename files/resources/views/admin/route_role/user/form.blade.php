@@ -2,7 +2,7 @@
         <ul class="list-disc">
             @foreach($users as $user)
                 <li>
-                    <label class="text-gray-700 font-semibold">
+                    <label class="text-dark-700 font-semibold">
                         <input type="checkbox" name="route_role[users][]" value="{{ $user->id }}" @checked($route_role->users->pluck('id')->contains($user->id)) />
                         <span class="text-sm">{{ $user->name }}</span>
                     </label>
