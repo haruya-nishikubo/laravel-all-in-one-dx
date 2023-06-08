@@ -1,4 +1,3 @@
-
 <ol class="items-center w-full space-y-4 sm:flex sm:space-x-8 sm:space-y-0">
     @foreach($items as $item)
         <li @class(['flex items-center text-info-600 space-x-2.5', 'text-info-600' => $item['is_active'], 'text-dark-400' => (! $item['is_active'])])>
