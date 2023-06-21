@@ -53,7 +53,7 @@ class UserController extends Controller
 
         $user = new User($validated['user']);
         $user->fill([
-            'password' => $validated['user']['password'],
+            'password' => bcrypt($validated['user']['password']),
         ]);
 
         if (! $user->save()) {
