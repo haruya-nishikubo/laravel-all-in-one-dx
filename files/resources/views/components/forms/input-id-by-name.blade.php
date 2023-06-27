@@ -1,7 +1,7 @@
 <div x-data="{
     sources: {{ $sources }},
-    selectedName: '',
-    selectedId: null,
+    selectedName: '{{ $selectedName }}',
+    selectedId: {{ $selectedId }},
     setId() {
         const selectedSource = this.sources.find(source => source.name == this.selectedName);
         this.selectedId = selectedSource ? selectedSource.id : null;
